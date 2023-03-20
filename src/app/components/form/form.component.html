@@ -1,0 +1,15 @@
+<form [formGroup]="dataForm" (ngSubmit)="handleOnSubmitForm()">
+    <label for="arrayLength">Array Length: </label>
+    <input id="arrayLength" type="number" formControlName="arrayLength" placeholder="Array length...">
+
+    <label for="speed">Working Speed (in ms): </label>
+    <input id="speed" type="number" formControlName="speed" placeholder="Speed...">
+
+    <span class="type">Array type:</span>
+    <span *ngFor="let button of typeButtons; let i = index" class="type-btn"
+        [style.background-color]="button.backgroundColor" (click)="handleSelectArrayType(i)">{{button.type}}</span>
+
+    <button>Update Data</button>
+    <p *ngIf="error" class="error">Array Length must be lower than {{maxLength.toFixed(0)}}</p>
+
+</form>

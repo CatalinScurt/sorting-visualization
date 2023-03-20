@@ -1,0 +1,17 @@
+<div class="dashboard-component">
+    <h1 class="title">Sorting algorithms visualization</h1>
+    <h1 class="iteration-no">Iteration number: {{this.countService.getCount()}}</h1>
+    <app-form (updateDataEvent)="updateData($event)" [error]="error" [maxLength]="maxArrayLength"></app-form>
+    <div class="data-container">
+        <div *ngFor="let element of array; let i = index">
+            <div [ngStyle]="setMyStyles(i)" class="data">
+            </div>
+        </div>
+    </div>
+    <div class="buttons-container">
+        <button class="sort-btn" (click)="bubbleSort()">Bubble Sort</button>
+        <button class="sort-btn" (click)="insertionSort()">Insertion Sort</button>
+        <button class="sort-btn" (click)="quickSort()">Quick Sort</button>
+        <button class="sort-btn" (click)="heapSort()">Heap Sort</button>
+    </div>
+</div>
